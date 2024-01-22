@@ -1,0 +1,21 @@
+img {
+  width: 45%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  transition: ease 0.3s ;
+}
+
+img:hover {
+  transform: scale(1.1);
+
+}
+
+p {
+  font-size: x-large;
+  text-shadow: 3px 1px black;
+}
+
+h1 {
+font-size: 300%;
+text-shadow: 3px 1px black;
+}

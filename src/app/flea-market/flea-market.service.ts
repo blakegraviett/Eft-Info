@@ -7,11 +7,21 @@ import { Subject } from 'rxjs';
 })
 export class FleaMarketService {
   foundItemsSubj = new Subject<any>();
+  slectedItemSubj = new Subject<any>();
 
-  foundItems = [];
 
   constructor() { }
 
+  restructorItem(item) {
+    const restructoredItem: TarkovItemModel ={
+      name: item.name,
+      types: [item.types],
+      iconLink: item.iconLink,
+      size: (item.width * item.height).toString(),
+      sellFor: [item.sellFor]
+    }
+    return restructoredItem;
+  }
 
   getItemByNameArray(name) {
 
@@ -44,7 +54,6 @@ export class FleaMarketService {
     }
 
     foundItemFunc(data: any) {
-      console.log(data)
       this.foundItemsSubj.next(data)
     }
 

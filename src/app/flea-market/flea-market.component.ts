@@ -19,9 +19,8 @@ export class FleaMarketComponent {
     });
 
     onSubmit(){
-      console.log(this.searchItemForm.value.item)
       this.fleaMarketService.getItemByNameArray(this.searchItemForm.value.item)
-      this.foundItemsSub = this.fleaMarketService.foundItemsSubj.subscribe((updateArray) => this.foundItemsArray = updateArray.data.itemsByName)
+      this.foundItemsSub = this.fleaMarketService.foundItemsSubj.subscribe((updateArray) => this.foundItemsArray = this.fleaMarketService.restructorItem(updateArray.data.itemsByName))
     }
 
   ngOnInit() {

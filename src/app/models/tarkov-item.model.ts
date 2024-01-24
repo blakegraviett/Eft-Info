@@ -4,9 +4,6 @@ export class TarkovItemModel {
     public types: String[],
     public iconLink: String,
     public size: String,
-    public sellFor: [{
-      price: Number,
-      source: String
-    }]
+    public sellFor: [{}]
     ) {}
 }

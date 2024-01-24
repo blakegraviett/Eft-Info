@@ -7,7 +7,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { FleaMarketComponent } from './flea-market/flea-market.component';
-import { MarketItemComponent } from './flea-market/market-item/market-item.component';
+import { MarketItemComponent } from './flea-market/market-search-item/market-item.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { MarketItemComponent } from './flea-market/market-item/market-item.compo
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

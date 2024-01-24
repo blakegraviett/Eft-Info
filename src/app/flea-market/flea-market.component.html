@@ -1,11 +1,26 @@
+<br>
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-12 d-flex justify-content-center">
 
+    <form [formGroup]="searchItemForm" (input)="onSubmit()">
+      <div class="row">
+        <div class="col-md-12 form-group">
+          <label for="item">Search: </label>
+          <input
+          type="text"
+          name="item"
+          id="item"
+          formControlName="item"
+          >
   </div>
 </div>
+</form>
+</div>
+</div>
+<br>
 
 <div class="row">
-<div class="col-md-6 searchDiv" *ngFor="let item of this.foundItemsArray" >
+<div class="col-md-6 searchDiv" *ngFor="let item of this.foundItemsArray.slice(0, 12)" >
    <app-market-item [item]="item"></app-market-item>
 </div>
 </div>

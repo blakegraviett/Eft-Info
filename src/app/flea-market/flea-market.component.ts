@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FleaMarketService } from './flea-market.service';
 import { Subscription } from 'rxjs';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-flea-market',
@@ -12,6 +13,16 @@ export class FleaMarketComponent {
 
   foundItemsSub: Subscription
   foundItemsArray: any
+
+  searchItemForm = new FormGroup({
+    item: new FormControl('', Validators.required)
+    });
+
+    onSubmit(){
+      console.log(this.searchItemForm.value.item)
+      this.fleaMarketService.getItemByNameArray(this.searchItemForm.value.item)
+      this.foundItemsSub = this.fleaMarketService.foundItemsSubj.subscribe((updateArray) => this.foundItemsArray = updateArray.data.itemsByName)
+    }
 
   ngOnInit() {
   this.fleaMarketService.getItemByNameArray('m4')

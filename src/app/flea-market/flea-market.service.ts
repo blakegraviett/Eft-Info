@@ -13,7 +13,7 @@ export class FleaMarketService {
   constructor() { }
 
 
-  getItemByNameArray(name: String) {
+  getItemByNameArray(name) {
 
       fetch('https://api.tarkov.dev/graphql', {
     method: 'POST',

@@ -25,7 +25,7 @@ export class FleaMarketComponent {
     }
 
   ngOnInit() {
-  this.fleaMarketService.getItemByNameArray('m4')
+  this.fleaMarketService.getItemByNameArray('labs')
   this.foundItemsSub = this.fleaMarketService.foundItemsSubj.subscribe((updateArray) => this.foundItemsArray = updateArray.data.itemsByName)
   }
 

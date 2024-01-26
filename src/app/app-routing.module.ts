@@ -11,7 +11,7 @@ const routes: Routes = [
   {path: 'hideout', component: LandingPageComponent},
   {path: 'maps', component: LandingPageComponent},
   {path: 'flea-market', component: FleaMarketComponent},
-  {path: 'flea-market/item/:name', component: ItemInfoComponent},
+  {path: 'flea-market/item/:id', component: ItemInfoComponent},
   {path: 'shopping-list', component: LandingPageComponent},
 
 ];

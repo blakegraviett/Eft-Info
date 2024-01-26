@@ -12,15 +12,16 @@ import { ActivatedRoute, Params, Router} from '@angular/router';
 export class ItemInfoComponent {
   constructor( private fleaMarketService: FleaMarketService,  private route: ActivatedRoute,
     private router: Router,) {}
+
   slectedItemSub: Subscription
   selectedItem: TarkovItemModel
-
+  traderImg: String
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
-      const itemName = params['name'];
-      this.fleaMarketService.getItemByNameArray(itemName);
-      this.slectedItemSub = this.fleaMarketService.foundItemsSubj.subscribe((item) => this.selectedItem = this.fleaMarketService.restructorItem(item.data.itemsByName[0]))
+      const itemId = params['id'];
+      this.fleaMarketService.getItemByIdArray(itemId);
+      this.slectedItemSub = this.fleaMarketService.foundItemById.subscribe((item) => this.selectedItem = this.fleaMarketService.restructorItem(item.data.itemsByIDs[0]))
     })
   }
 

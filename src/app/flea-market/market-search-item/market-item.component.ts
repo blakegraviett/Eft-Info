@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { FleaMarketService } from '../flea-market.service';
+import { TarkovItemModel } from 'src/app/models/tarkov-item.model';
 
 @Component({
   selector: 'app-market-item',
@@ -6,5 +8,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./market-item.component.scss']
 })
 export class MarketItemComponent {
+  constructor( private fleaMarketService: FleaMarketService) {}
  @Input() item
+
 }

@@ -1,0 +1,29 @@
+<br>
+<div class="row">
+  <div class="col-md-3 d-flex justify-content-center">
+    <img class="img-fluid" src="{{selectedItem.iconLink}}" />
+    </div>
+    <div class="col-md-3">
+      <h1 class="center">NAME</h1> <p class="center itemInfo">{{selectedItem.name}}</p>
+      </div>
+      <div class="col-md-3 ">
+        <h1 class="center">Types</h1> <p class="center itemInfo">{{selectedItem.types}}</p>
+        </div>
+        <div class="col-md-3">
+          <h1 class="center">Size</h1> <p class="center itemInfo">{{selectedItem.size}}</p>
+          </div>
+</div>
+<hr>
+<h1 class="center">SELL TO:</h1>
+<br>
+<br>
+<div class="row">
+<div class="col-md-1 sellFor" *ngFor="let sellFor of this.selectedItem.sellFor[0]">
+  <img class="img-fluid traderIMG d-flex justify-content-center" src="{{this.fleaMarketService.checkTraderImg(sellFor.source)}}" />
+  <h2 class="trader center">{{sellFor.source}}</h2>
+  <p  *ngIf='sellFor.source != "peacekeeper"'class="center price">{{sellFor.price.toLocaleString('en-US')}} RUB</p>
+  <p *ngIf='sellFor.source == "peacekeeper"'class="center price">{{sellFor.price.toLocaleString('en-US')}} USD </p>
+</div>
+</div>
+<br>
+<p style="text-align: center;">For more info on "{{selectedItem.name}}" click <a target="_blank" href="{{selectedItem.link}}">here</a></p>

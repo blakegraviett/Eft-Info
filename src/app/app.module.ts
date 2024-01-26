@@ -9,6 +9,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { FleaMarketComponent } from './flea-market/flea-market.component';
 import { MarketItemComponent } from './flea-market/market-search-item/market-item.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ItemInfoComponent } from './flea-market/market-search-item/item-info/item-info.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     LandingPageComponent,
     FleaMarketComponent,
     MarketItemComponent,
+    ItemInfoComponent,
   ],
   imports: [
     BrowserModule,

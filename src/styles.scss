@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300&display=swap');
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Bebas Neue', sans-serif;
+}
+* {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+}
+p {
+  font-family: 'Montserrat', sans-serif;
+}
+body, html {
+  background-color: 	#3b3b3b;
+}
+.center {
+  text-align: center;
+}
+.left {
+  text-align: left;
+}

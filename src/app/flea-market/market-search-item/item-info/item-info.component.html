@@ -25,5 +25,19 @@
   <p *ngIf='sellFor.source == "peacekeeper"'class="center price">{{sellFor.price.toLocaleString('en-US')}} USD </p>
 </div>
 </div>
+<hr>
+<h1 class="center">Buy From:</h1>
 <br>
-<p style="text-align: center;">For more info on "{{selectedItem.name}}" click <a target="_blank" href="{{selectedItem.link}}">here</a></p>
+<br>
+<div class="row">
+<div class="col-md-1 sellFor" *ngFor="let buyFor of this.selectedItem.buyFor[0]">
+  <img class="img-fluid traderIMG d-flex justify-content-center" src="{{this.fleaMarketService.checkTraderImg(buyFor.source)}}" />
+  <h2 class="trader center">{{buyFor.source}}</h2>
+  <p  *ngIf='buyFor.source != "peacekeeper"'class="center price">{{buyFor.price.toLocaleString('en-US')}} RUB</p>
+  <p *ngIf='buyFor.source == "peacekeeper"'class="center price">{{buyFor.price.toLocaleString('en-US')}} USD </p>
+</div>
+</div>
+<hr>
+
+<p class="link center">For more info on "{{selectedItem.name}}" click <a target="_blank" href="{{selectedItem.link}}">here</a></p>
+

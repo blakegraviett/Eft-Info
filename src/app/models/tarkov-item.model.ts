@@ -8,6 +8,7 @@ export class TarkovItemModel {
     public iconLink: String,
     public size: String,
     public sellFor: [{}],
+    public buyFor: [{}],
     public link: String
     ) {}
 }

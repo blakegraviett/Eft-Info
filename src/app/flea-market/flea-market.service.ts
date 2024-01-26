@@ -21,7 +21,8 @@ export class FleaMarketService {
       iconLink: item.gridImageLink,
       size: item.width.toString() + 'x' + item.height.toString(),
       sellFor: [item.sellFor],
-      link: item.wikiLink
+      link: item.wikiLink,
+      buyFor: [item.buyFor]
     }
     return restructoredItem;
   }
@@ -38,16 +39,17 @@ export class FleaMarketService {
       itemsByName(name: "${name}") {
         name
         types
-        avg24hPrice
-        basePrice
         width
         height
-        changeLast48hPercent
         iconLink
         link
         wikiLink
         id
         sellFor {
+          price
+          source
+        }
+        buyFor {
           price
           source
         }
@@ -75,6 +77,10 @@ export class FleaMarketService {
         wikiLink
         id
         sellFor {
+          price
+          source
+        }
+        buyFor {
           price
           source
         }

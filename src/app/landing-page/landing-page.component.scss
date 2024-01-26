@@ -20,5 +20,16 @@ font-size: 300%;
 text-shadow: 3px 1px black;
 }
 .title {
+  padding-top: 5%;
+  text-shadow: 5px 5px 5px black;
   font-size: 400%;
+}
+.titleDiv {
+  background-image: url(../../assets/images/background.jpg.png);
+}
+.titleInfo {
+  font-size: xx-large;
+  font-family: 'Bebas Neue', sans-serif;
+  padding-bottom: 4%;
+  text-shadow: 5px 5px 5px black;
 }

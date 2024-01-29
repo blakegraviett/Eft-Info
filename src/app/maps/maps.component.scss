@@ -17,3 +17,12 @@ button {
 .title{
   font-size: 350%;
 }
+img {
+  padding-top: 2%;
+  transition: ease 0.3s ;
+}
+
+img:hover {
+  transform: scale(1.05);
+
+}

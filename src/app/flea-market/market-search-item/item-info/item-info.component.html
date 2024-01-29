@@ -1,4 +1,5 @@
 <br>
+<button class="btn btn-primary" (click)="log(this.selectedItem.buyFor[0])">log</button>
 <div class="row">
   <div class="col-md-3 d-flex justify-content-center">
     <img class="img-fluid" src="{{selectedItem.iconLink}}" />
@@ -27,6 +28,7 @@
 </div>
 <hr>
 <h1 class="center">Buy From:</h1>
+<h3 *ngIf="this.selectedItem.buyFor[0] == ''" class="trader center" style="color: red;">Item cannot be bought and must be found in raid or be crafted</h3>
 <br>
 <br>
 <div class="row">

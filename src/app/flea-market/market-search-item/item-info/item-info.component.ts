@@ -17,6 +17,10 @@ export class ItemInfoComponent {
   selectedItem: TarkovItemModel
   traderImg: String
 
+    log(item) {
+console.log(item)
+    }
+
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
       const itemId = params['id'];

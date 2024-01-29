@@ -10,20 +10,23 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class FleaMarketComponent {
   constructor( private fleaMarketService: FleaMarketService) {}
-
+//  Subscriptions for the search bar
   foundItemsSub: Subscription
   foundItemsArray: any
 
+  // Search Bar
   searchItemForm = new FormGroup({
     item: new FormControl('', Validators.required)
     });
 
-    onSubmit(){
+    // search DB for the list of items by name when the user types
+    onInput(){
       this.fleaMarketService.getItemByNameArray(this.searchItemForm.value.item)
       this.foundItemsSub = this.fleaMarketService.foundItemsSubj.subscribe((updateArray) => this.foundItemsArray = updateArray.data.itemsByName)
     }
 
   ngOnInit() {
+    // Default input when page is loaded
   this.fleaMarketService.getItemByNameArray('labs')
   this.foundItemsSub = this.fleaMarketService.foundItemsSubj.subscribe((updateArray) => this.foundItemsArray = updateArray.data.itemsByName)
   }

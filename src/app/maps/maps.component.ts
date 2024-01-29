@@ -11,20 +11,21 @@ import { Router } from '@angular/router';
 })
 export class MapsComponent {
 mapsSub: Subscription
+map: {}
 
 constructor( private mapsService: MapsService, private router: Router) {}
   // Search Bar
-  searchItemForm = new FormGroup({
+  searchMapForm = new FormGroup({
     map: new FormControl('', Validators.required)
     });
 
-    async onSubmit() {
-      this.mapsService.getMapInfoByName(this.searchItemForm.value.map.toLowerCase())
+     onSubmit() {
+      this.mapsService.getMapInfoByName(this.searchMapForm.value.map.toLowerCase())
       this.mapsSub = this.mapsService.mapSubj.subscribe((foundMap) => this.router.navigate([`/maps/${foundMap.id}`]))
     }
 
     ngOnInit() {
-
+      this.mapsSub = this.mapsService.mapSubj.subscribe((foundMap) => this.map = foundMap)
     }
 
     ngOnDestroy() {

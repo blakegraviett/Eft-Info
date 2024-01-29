@@ -11,7 +11,7 @@ export class MapsService {
   constructor() { }
 
   // Restructure map to TarkovMapModel
-  restructuredMap(map) {
+  restructuredMap(map: any) {
     const restructoredItem: TarkovMapModel = {
       id: map.id,
       name: map.name,
@@ -26,8 +26,8 @@ export class MapsService {
   }
 
   // Get map info from api
-  async getMapInfoByName(mapName){
-    await fetch('https://api.tarkov.dev/graphql', {
+  getMapInfoByName(mapName){
+     fetch('https://api.tarkov.dev/graphql', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -37,16 +37,6 @@ export class MapsService {
       maps {
         id
         name
-        enemies
-        raidDuration
-        players
-        description
-        locks{
-          key {
-          name
-            id
-      }
-      }
       }
   }`})
   })

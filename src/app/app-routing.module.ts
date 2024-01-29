@@ -11,6 +11,7 @@ const routes: Routes = [
   {path: 'quest', component: LandingPageComponent},
   {path: 'hideout', component: LandingPageComponent},
   {path: 'maps', component: MapsComponent},
+  {path: 'maps/:id', component: LandingPageComponent},
   {path: 'flea-market', component: FleaMarketComponent},
   {path: 'flea-market/item/:id', component: ItemInfoComponent},
   {path: 'shopping-list', component: LandingPageComponent},

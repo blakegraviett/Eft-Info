@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MapsService } from './maps.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-maps',
@@ -10,21 +11,16 @@ import { Subscription } from 'rxjs';
 })
 export class MapsComponent {
 mapsSub: Subscription
-map
 
-constructor( private mapsService: MapsService) {}
+constructor( private mapsService: MapsService, private router: Router) {}
   // Search Bar
   searchItemForm = new FormGroup({
     map: new FormControl('', Validators.required)
     });
 
-    log() {
-      console.log(this.map)
-    }
-
-    onSubmit() {
+    async onSubmit() {
       this.mapsService.getMapInfoByName(this.searchItemForm.value.map.toLowerCase())
-      this.mapsSub = this.mapsService.mapSubj.subscribe((foundMap) => this.map = foundMap)
+      this.mapsSub = this.mapsService.mapSubj.subscribe((foundMap) => this.router.navigate([`/maps/${foundMap.id}`]))
     }
 
     ngOnInit() {

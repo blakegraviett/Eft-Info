@@ -26,8 +26,8 @@ export class MapsService {
   }
 
   // Get map info from api
-  getMapInfoByName(mapName){
- fetch('https://api.tarkov.dev/graphql', {
+  async getMapInfoByName(mapName){
+    await fetch('https://api.tarkov.dev/graphql', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

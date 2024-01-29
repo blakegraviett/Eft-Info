@@ -4,7 +4,6 @@ export class TarkovMapModel {
     public name: String,
     public raidTime: Number,
     public numPlayers: String,
-    public desc: String,
     public enemies: [String],
     public keys: [{}],
     public mapImageLink: String

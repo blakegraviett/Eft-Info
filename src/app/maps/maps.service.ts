@@ -7,6 +7,7 @@ import { Subject } from 'rxjs';
 })
 export class MapsService {
   mapSubj = new Subject<TarkovMapModel>();
+  mapIdSubj = new Subject<TarkovMapModel>();
 
   constructor() { }
 
@@ -17,7 +18,6 @@ export class MapsService {
       name: map.name,
       raidTime: map.raidDuration,
       numPlayers: map.players,
-      desc: map.description,
       enemies: map.enemies,
       keys: map.locks,
       mapImageLink: this.findMapImageLink(map.name)
@@ -25,7 +25,7 @@ export class MapsService {
     return restructoredItem;
   }
 
-  // Get map info from api
+  // Get map info from api by name
   getMapInfoByName(mapName){
      fetch('https://api.tarkov.dev/graphql', {
     method: 'POST',
@@ -44,6 +44,36 @@ export class MapsService {
     .then(data => this.mapSubj.next(this.restructuredMap(data.data.maps.filter(function (el) {
       return el.name.toLowerCase() == mapName.toLowerCase();
     })[0])))
+}
+
+  // Get map info from api by ID
+getMapInfoByID(mapId){
+  fetch('https://api.tarkov.dev/graphql', {
+ method: 'POST',
+ headers: {
+   'Content-Type': 'application/json',
+   'Accept': 'application/json',
+ },
+ body: JSON.stringify({query: `{
+  maps {
+    name
+    id
+    enemies
+    raidDuration
+    players
+    locks{
+      key{
+        name
+        id
+  }
+  }
+  }
+}`})
+})
+ .then(r => r.json())
+ .then(data => this.mapIdSubj.next(this.restructuredMap(data.data.maps.filter(function (el) {
+   return el.id == mapId;
+ })[0])))
 }
 
 // Search for what Image link to send to map model

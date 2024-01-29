@@ -6,6 +6,7 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class FleaMarketService {
+  // All subjects used in the tarkov market feature
   foundItemsSubj = new Subject<any>();
   slectedItemSubj = new Subject<any>();
   foundItemById = new Subject<any>()
@@ -13,6 +14,7 @@ export class FleaMarketService {
 
   constructor() { }
 
+// Restructores items to a new model
   restructorItem(item) {
     const restructoredItem: TarkovItemModel ={
       id: item.id,
@@ -27,8 +29,8 @@ export class FleaMarketService {
     return restructoredItem;
   }
 
+  // Get all items by there name
   getItemByNameArray(name: String) {
-
       fetch('https://api.tarkov.dev/graphql', {
     method: 'POST',
     headers: {
@@ -49,10 +51,6 @@ export class FleaMarketService {
           price
           source
         }
-        buyFor {
-          price
-          source
-        }
       }
   }`})
   })
@@ -60,6 +58,7 @@ export class FleaMarketService {
     .then(data =>  this.foundItemsSubj.next(data))
     }
 
+  // Get all items by there ID
     getItemByIdArray(id: String) {
       fetch('https://api.tarkov.dev/graphql', {
     method: 'POST',
@@ -93,7 +92,7 @@ export class FleaMarketService {
 
 
 
-
+  // Checks what trader is a specific item and give them the correct picture
     checkTraderImg(traderName: String) {
       if(traderName === 'prapor') {
          return '../../../../assets/images/traders/prapor.png'

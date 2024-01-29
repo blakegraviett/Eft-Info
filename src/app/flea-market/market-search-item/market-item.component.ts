@@ -9,6 +9,7 @@ import { TarkovItemModel } from 'src/app/models/tarkov-item.model';
 })
 export class MarketItemComponent {
   constructor( private fleaMarketService: FleaMarketService) {}
- @Input() item
+  // Import the searched for item
+ @Input() item: TarkovItemModel
 
 }

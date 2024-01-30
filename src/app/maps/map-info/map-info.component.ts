@@ -14,8 +14,11 @@ export class MapInfoComponent {
   selectedMap: TarkovMapModel
   selectedMapSub: Subscription;
 
-  log() {
-    console.log(this.selectedMap);
+  // Removes any duplicates of keys
+  removeDuplicates(keyArr) {
+     const filterArr = keyArr.filter((obj, index) => keyArr.findIndex((item) => item.key.name === obj.key.name) === index
+    );
+    return filterArr;
   }
 
   ngOnInit() {

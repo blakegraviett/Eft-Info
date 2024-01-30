@@ -65,6 +65,7 @@ getMapInfoByID(mapId){
       key{
         name
         id
+        iconLink
   }
   }
   }

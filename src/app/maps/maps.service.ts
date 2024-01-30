@@ -37,6 +37,7 @@ export class MapsService {
       maps {
         id
         name
+        enemies
       }
   }`})
   })

@@ -12,8 +12,8 @@
           <h1 class="center">ENEMIES</h1> <p class="center itemInfo">{{this.selectedMap.enemies}}</p>
           </div>
 <div class="row" [ngClass]="{'imgRow':this.checkMapHeight(this.selectedMap.name)}">
-  <div  [ngClass]="{'longMap':this.checkMapHeight(this.selectedMap.name)}" class="col-md-12 d-flex justify-content-center">
-    <a style="cursor: pointer;" href="{{this.selectedMap.mapImageLink}}" target="_blank"><img class="img-fluid"
+  <div class="col-md-12 d-flex justify-content-center">
+    <a style="cursor: pointer;" href="{{this.selectedMap.mapImageLink}}" target="_blank"><img [ngClass]="{'longMap':this.checkMapHeight(this.selectedMap.name)}" class="img-fluid"
     src="{{this.selectedMap.mapImageLink}}" /></a>
   </div>
 </div>
@@ -28,7 +28,7 @@
         <p>{{keyObj.key.name}}</p>
       </div>
        <div class="col-md-6">
-        <a style="cursor: pointer;" routerLink="/flea-market/item/{{keyObj.key.id}}"><img class="img-fluid" src="{{keyObj.key.iconLink}}" /></a>
+        <a style="cursor: pointer;" routerLink="/flea-market/item/{{keyObj.key.id}}"><img class="img-fluid keyIcon" src="{{keyObj.key.iconLink}}" /></a>
       </div>
     </div>
   </div>

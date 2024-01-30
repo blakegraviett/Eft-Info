@@ -10,6 +10,8 @@ import { FleaMarketComponent } from './flea-market/flea-market.component';
 import { MarketItemComponent } from './flea-market/market-search-item/market-item.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ItemInfoComponent } from './flea-market/market-search-item/item-info/item-info.component';
+import { MapsComponent } from './maps/maps.component';
+import { MapInfoComponent } from './maps/map-info/map-info.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { ItemInfoComponent } from './flea-market/market-search-item/item-info/it
     FleaMarketComponent,
     MarketItemComponent,
     ItemInfoComponent,
+    MapsComponent,
+    MapInfoComponent,
   ],
   imports: [
     BrowserModule,

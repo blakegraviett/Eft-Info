@@ -14,6 +14,29 @@ export class MapInfoComponent {
   selectedMap: TarkovMapModel
   selectedMapSub: Subscription;
 
+
+  //Check to see if woods or groundzero
+  checkMapHeight(name) {
+    if(name == 'Woods') {
+      return true
+    }
+    if(name == 'Ground Zero') {
+      return true
+    }
+  }
+
+  checkMapKey(name) {
+    if(name == 'Factory') {
+      return true
+    }
+    if(name == 'Ground Zero') {
+      return true
+    }
+    if(name == 'Woods') {
+      return true
+    }
+  }
+
   // Removes any duplicates of keys
   removeDuplicates(keyArr) {
      const filterArr = keyArr.filter((obj, index) => keyArr.findIndex((item) => item.key.name === obj.key.name) === index

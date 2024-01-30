@@ -1,5 +1,35 @@
-<h1>{{this.selectedMap.name}}</h1>
-<div *ngFor="let keyObj of this.removeDuplicates(this.selectedMap.keys)">
-  <h3>{{keyObj.key.name}}</h3>
-  <img src="{{keyObj.key.iconLink}}" />
+<!-- Give basic info on the selected item -->
+<h1 class="center mapTitle">{{this.selectedMap.name}}</h1>
+<hr>
+<div class="row">
+    <div class="col-md-4">
+      <h1 class="center">Raid Duration</h1> <p class="center itemInfo">{{this.selectedMap.raidTime}} MIN</p>
+      </div>
+      <div class="col-md-4 ">
+        <h1 class="center">Players</h1> <p class="center itemInfo">{{this.selectedMap.numPlayers}}</p>
+        </div>
+        <div class="col-md-4">
+          <h1 class="center">ENEMIES</h1> <p class="center itemInfo">{{this.selectedMap.enemies}}</p>
+          </div>
+<div class="row" [ngClass]="{'imgRow':this.checkMapHeight(this.selectedMap.name)}">
+  <div  [ngClass]="{'longMap':this.checkMapHeight(this.selectedMap.name)}" class="col-md-12 d-flex justify-content-center">
+    <a style="cursor: pointer;" href="{{this.selectedMap.mapImageLink}}" target="_blank"><img class="img-fluid"
+    src="{{this.selectedMap.mapImageLink}}" /></a>
+  </div>
+</div>
+
+<h1 class="center keyTitle">KEYS</h1>
+<hr *ngIf="this.checkMapKey(this.selectedMap.name)">
+<div class="row">
+  <div class="col-md-2" *ngFor="let keyObj of this.removeDuplicates(this.selectedMap.keys)">
+    <div class="row">
+      <hr *ngIf="!this.checkMapKey(this.selectedMap.name)">
+      <div class="col-md-6">
+        <p>{{keyObj.key.name}}</p>
+      </div>
+       <div class="col-md-6">
+        <a style="cursor: pointer;" routerLink="/flea-market/item/{{keyObj.key.id}}"><img class="img-fluid" src="{{keyObj.key.iconLink}}" /></a>
+      </div>
+    </div>
+  </div>
 </div>

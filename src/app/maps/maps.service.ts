@@ -18,7 +18,7 @@ export class MapsService {
       name: map.name,
       raidTime: map.raidDuration,
       numPlayers: map.players,
-      enemies: map.enemies,
+      enemies: [map.enemies.join(', ')],
       keys: map.locks,
       mapImageLink: this.findMapImageLink(map.name)
     }

@@ -1,0 +1,32 @@
+.mapTitle {
+  font-size: 350%;
+  text-shadow: 5px 5px 5px black;
+}
+.longMap {
+  height: 70%;
+  padding: 0;
+  margin: 0;
+}
+.imgRow {
+  height: 900px;
+  padding: 0;
+  margin: 0;
+}
+hr {
+  min-width: 100%;
+  min-width: 100%;
+}
+
+.keyTitle {
+  margin-top: 1.5%;
+  font-size: 350%;
+  text-shadow: 5px 5px 5px black;
+}
+
+.keyIcon {
+  transition: ease 0.3s ;
+}
+
+.keyIcon:hover {
+ transform: scale(1.1);
+}

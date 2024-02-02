@@ -16,6 +16,7 @@ export class ItemInfoComponent {
   traderImg: String
   selectedItem
 
+  // Sort all sellers to get the highest price seller
    sortByPrice() {
     let highestItem = this.selectedItem.sellFor[0][0];
 

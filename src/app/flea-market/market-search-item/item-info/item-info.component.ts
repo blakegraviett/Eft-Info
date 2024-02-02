@@ -13,8 +13,23 @@ export class ItemInfoComponent {
   constructor( private fleaMarketService: FleaMarketService,  private route: ActivatedRoute) {}
 
   slectedItemSub: Subscription
-  selectedItem: TarkovItemModel
   traderImg: String
+  selectedItem
+
+   sortByPrice() {
+    let highestItem = this.selectedItem.sellFor[0][0];
+
+    this.selectedItem.sellFor[0].forEach(item => {
+      if (item.price > highestItem.price) {
+        highestItem = item;
+      }
+    })
+     return {
+      source: highestItem.source,
+      price: highestItem.price,
+      pricePerSlot: Math.round(highestItem.price / this.selectedItem.size)
+    }
+  }
 
   ngOnInit() {
     // Get the selected item's ID and search the DB for the chosen item

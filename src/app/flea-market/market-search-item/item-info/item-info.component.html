@@ -8,10 +8,11 @@
       <h1 class="center">NAME</h1> <p class="center itemInfo">{{selectedItem.name}}</p>
       </div>
       <div class="col-md-3 ">
-        <h1 class="center">Types</h1> <p class="center itemInfo">{{selectedItem.types}}</p>
+        <h1 class="center">Best Buyer</h1> <p class="center itemInfo">{{this.sortByPrice().source}} at {{this.sortByPrice().price.toLocaleString('en-US')}}</p>
         </div>
         <div class="col-md-3">
-          <h1 class="center">Size</h1> <p class="center itemInfo">{{selectedItem.size}}</p>
+          <h1 class="center">Price Per Slot</h1>
+          <p class="center itemInfo">{{this.sortByPrice().pricePerSlot.toLocaleString('en-US')}} RUB per slot</p>
           </div>
 
 </div>

@@ -21,7 +21,7 @@ export class FleaMarketService {
       name: item.name,
       types: [item.types.join(', ')],
       iconLink: item.gridImageLink,
-      size: item.width.toString() + 'x' + item.height.toString(),
+      size: item.width * item.height,
       sellFor: [item.sellFor],
       link: item.wikiLink,
       buyFor: [item.buyFor]

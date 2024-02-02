@@ -26,7 +26,6 @@ export class ItemInfoComponent {
     })
      return {
       source: highestItem.source,
-      price: highestItem.price,
       pricePerSlot: Math.round(highestItem.price / this.selectedItem.size)
     }
   }

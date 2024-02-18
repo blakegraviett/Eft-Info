@@ -10,7 +10,6 @@ export class QuestService {
 
   constructor() { }
 
-
   async getQuestByName(searchedName) {
     const response = await fetch(`https://eft-info.onrender.com/api/v1/quests?name=${searchedName}`, {
       method: "GET",
@@ -52,6 +51,5 @@ body: JSON.stringify({query: `{
 .then(r => r.json())
 .then(data =>  this.foundQuestsFromTarkovDevSubj.next(data.data.tasks.filter((quest) => quest.name === name)))
 }
-
 
 }

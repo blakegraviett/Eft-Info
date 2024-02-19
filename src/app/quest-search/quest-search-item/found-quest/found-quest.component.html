@@ -1,2 +1,59 @@
-<p>{{this.foundQuest[0].name}}</p>
-<button (click)="log()">sdasdsad</button>
+<button class="btn btn-primary" (click)="log()">LOG THE QUEST</button>
+<div class="row">
+  <div class="col-md-12 titleDiv">
+    <h1 class="center questTitle">{{this.foundQuest.name}}</h1>
+  </div>
+</div>
+<br>
+<div class="row">
+  <!-- * OBJECTIVES * -->
+  <div class="col-md-4">
+    <h3 class="center title">Objectives</h3>
+    <hr>
+    <br>
+    <ul>
+      <li>Given By {{this.foundQuest.trader.name}}</li>
+      <li *ngFor="let questObjective of this.foundQuest.objectives">{{questObjective.description}}</li>
+    </ul>
+  </div>
+
+ <!-- * TASK REQUIREMENTS * -->
+ <div class="col-md-4">
+ <h3 class="center title">REQUIREMENTS</h3>
+ <hr>
+    <ul>
+      <li>Must be at least level {{this.foundQuest.minPlayerLevel}}</li>
+      <li *ngIf="this.foundQuest.map">Must be done on {{this.foundQuest.map.name}}</li>
+      <li *ngFor="let requriements of this.foundQuest.taskRequirements">Must Complete {{requriements.task.name}}</li>
+    </ul>
+  </div>
+
+<!-- * TASK Rewards * -->
+<div class="col-md-4">
+  <h3 class="center title">Rewards</h3>
+  <hr>
+     <ul>
+       <li>{{this.foundQuest.experience}} experience</li>
+       <li *ngFor="let rewardedItem of this.foundQuest.finishRewards.items">({{rewardedItem.quantity}}) {{rewardedItem.item.name}}</li>
+       <div *ngIf="this.foundQuest.finishRewards.offerUnlock[0] != null">
+       <li *ngFor="let purchase of this.foundQuest.finishRewards.offerUnlock">Unlocks purchase of {{purchase.item.name}} from {{purchase.trader.name}} level {{purchase.level}}</li>
+      </div>
+      <div *ngIf="this.foundQuest.finishRewards.craftUnlock[0] != null">
+       <li *ngFor="let craft of this.foundQuest.finishRewards.craftUnlock">Unlocks craft for {{craft.rewardItems[0].item.name}} for {{craft.station.name}} level {{craft.level}}</li>
+      </div>
+     </ul>
+   </div>
+  </div>
+
+  <br>
+  <br>
+
+  <h1 class="center title">YouTube Tutorial</h1>
+  <hr>
+  <div class="row">
+      <div class="col-md-12" id="iframeDiv">
+        <iframe [src]="this.sanitizer.bypassSecurityTrustResourceUrl('//www.youtube.com/embed/'+this.foundQuestYtLink)"></iframe>
+        <br>
+        <br>
+    </div>
+  </div>

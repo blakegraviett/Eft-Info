@@ -24,7 +24,8 @@ searchQuestForm = new FormGroup({
   }
 
   ngOnInit() {
-    this.foundQuestArray = this.questService.getQuestByName('Tark')
+    // Fill the search with gunsmith quest when user starts
+    this.foundQuestArray = this.questService.getQuestByName('Gunsmith')
     this.foundQuestsSub = this.questService.foundQuestsSubj.subscribe((updatedQuestArr) => this.foundQuestArray = updatedQuestArr)
   }
 

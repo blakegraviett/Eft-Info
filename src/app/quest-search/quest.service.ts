@@ -21,6 +21,19 @@ export class QuestService {
     this.foundQuestsSubj.next(quests)
 }
 
+// Get the quest by Name from my own DB (with autocompleted search tool)
+async getSingleQuestByName(searchedName) {
+  const response = await fetch(`https://eft-info.onrender.com/api/v1/quests/name?name=${searchedName}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+  const quests = await response.json()
+  console.log(quests)
+  return quests
+}
+
 // Get single quest by ID from my own DB
 async getQuestByID(id) {
   const response = await fetch(`https://eft-info.onrender.com/api/v1/quests/${id}`, {

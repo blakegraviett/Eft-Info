@@ -5,7 +5,7 @@
   font-size: 400%;
 }
 .titleDiv {
-  background-image: url(../../../../assets/images/background.jpg);
+  background-size: 35%;
 }
 iframe {
   position: absolute;
@@ -28,4 +28,20 @@ iframe {
 
 .title {
   font-size: 300%;
+}
+.noVid {
+  color: red;
+}
+a {
+  color: #D5C1B7;
+
+}
+a:active {
+  color: #D5C1B7;
+}
+a:hover {
+  color: #988558;
+}
+li {
+  margin-bottom: 8px;
 }

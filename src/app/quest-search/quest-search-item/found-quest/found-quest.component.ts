@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { QuestService } from '../../quest.service';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { DomSanitizer } from '@angular/platform-browser';
 
@@ -10,10 +10,11 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./found-quest.component.scss']
 })
 export class FoundQuestComponent {
-  constructor( private questService: QuestService,  private route: ActivatedRoute, public sanitizer: DomSanitizer,) {}
+  constructor( private questService: QuestService,  private route: ActivatedRoute, public sanitizer: DomSanitizer, private router: Router) {}
   foundQuestsSub: Subscription
   foundTarkovDevQuestSub: Subscription
   foundQuest
+  foundQuestID
   foundQuestYtLink
 
   ngOnInit() {
@@ -42,17 +43,19 @@ export class FoundQuestComponent {
 
   // GET THE ID FROM THE LINK AND CHECK IF THERE IS A LINK
   getYtVideoId(ytLink) {
+    console.log(ytLink)
     if(ytLink != 'NA') {
     return ytLink.split('=').pop()
     }
     if(ytLink === 'NA') {
-      return 'There is no tutorial for this quest'
+      return 'NA'
     }
   }
 
-  log(){
-    console.log(this.foundQuestYtLink)
-    console.log(this.foundQuest);
+  async getQuestIdByName(questName) {
+    const quest = await this.questService.getSingleQuestByName(questName)
+    console.log(quest.data.quest[0]._id)
+    this.router.navigate([`/quest/${quest.data.quest[0]._id}`]);
   }
 
 }

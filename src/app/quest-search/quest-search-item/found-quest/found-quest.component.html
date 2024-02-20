@@ -22,7 +22,7 @@
  <hr>
     <ul>
       <li>Must be at least player level {{this.foundQuest.minPlayerLevel}}</li>
-      <li *ngIf="this.foundQuest.map">Must be done on <a style="cursor: pointer" (click)="getQuestIdByName(requriements.task.name)">{{this.foundQuest.map.name}}</a></li>
+      <li *ngIf="this.foundQuest.map">Must be done on <a style="cursor: pointer"  routerLink="/maps/{{this.foundQuest.map.id}}">{{this.foundQuest.map.name}}</a></li>
       <li *ngFor="let requriements of this.foundQuest.taskRequirements">Must Complete <a style="cursor: pointer;"(click)="this.getQuestIdByName(requriements.task.name)" routerLink="/quest/{{this.foundQuest._id}}">{{requriements.task.name}}</a></li>
     </ul>
   </div>
@@ -32,8 +32,8 @@
   <h3 class="center title">Rewards</h3>
   <hr>
      <ul>
-       <li>{{this.foundQuest.experience}} experience</li>
-       <li *ngFor="let rewardedItem of this.foundQuest.finishRewards.items">({{rewardedItem.quantity}}) <a style="cursor: pointer" routerLink="/flea-market/item/{{this.rewardedItem.item.id}}">{{rewardedItem.item.name}}</a></li>
+       <li>{{this.foundQuest.experience.toLocaleString('en-US')}} experience</li>
+       <li *ngFor="let rewardedItem of this.foundQuest.finishRewards.items">({{rewardedItem.quantity.toLocaleString('en-US')}}) <a style="cursor: pointer" routerLink="/flea-market/item/{{this.rewardedItem.item.id}}">{{rewardedItem.item.name}}</a></li>
        <div *ngIf="this.foundQuest.finishRewards.offerUnlock[0] != null">
        <li *ngFor="let purchase of this.foundQuest.finishRewards.offerUnlock">Unlocks purchase of <a style="cursor: pointer" routerLink="/flea-market/item/{{this.purchase.item.id}}">{{purchase.item.name}}</a> from {{purchase.trader.name}} level {{purchase.level}}</li>
       </div>
@@ -55,3 +55,5 @@
     </div>
     <h2 *ngIf="foundQuestYtLink == 'NA'" class="noVid center">THERE IS NO TUTORIAL FOR THIS QUEST!</h2>
   </div>
+  <hr>
+  <p class="center">For more information on "{{this.foundQuest.name}}" click <a href="{{this.foundQuest.wikiLink}}" target="_blank">here</a></p>

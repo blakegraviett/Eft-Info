@@ -1,0 +1,47 @@
+.questTitle {
+  padding-top: 5%;
+  padding-bottom: 5%;
+  text-shadow: 5px 5px 5px black;
+  font-size: 400%;
+}
+.titleDiv {
+  background-size: 35%;
+}
+iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 90%;
+  height: 95%;
+  margin: 0 auto;
+}
+
+#iframeDiv {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 300%;
+}
+.noVid {
+  color: red;
+}
+a {
+  color: #D5C1B7;
+
+}
+a:active {
+  color: #D5C1B7;
+}
+a:hover {
+  color: #988558;
+}
+li {
+  margin-bottom: 8px;
+}

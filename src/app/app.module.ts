@@ -12,6 +12,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ItemInfoComponent } from './flea-market/market-search-item/item-info/item-info.component';
 import { MapsComponent } from './maps/maps.component';
 import { MapInfoComponent } from './maps/map-info/map-info.component';
+import { QuestSearchComponent } from './quest-search/quest-search.component';
+import { QuestSearchItemComponent } from './quest-search/quest-search-item/quest-search-item.component';
+import { FoundQuestComponent } from './quest-search/quest-search-item/found-quest/found-quest.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,9 @@ import { MapInfoComponent } from './maps/map-info/map-info.component';
     ItemInfoComponent,
     MapsComponent,
     MapInfoComponent,
+    QuestSearchComponent,
+    QuestSearchItemComponent,
+    FoundQuestComponent,
   ],
   imports: [
     BrowserModule,

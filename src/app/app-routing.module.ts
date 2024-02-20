@@ -5,11 +5,14 @@ import { FleaMarketComponent } from './flea-market/flea-market.component';
 import { ItemInfoComponent } from './flea-market/market-search-item/item-info/item-info.component';
 import { MapsComponent } from './maps/maps.component';
 import { MapInfoComponent } from './maps/map-info/map-info.component';
+import { QuestSearchComponent } from './quest-search/quest-search.component';
+import { FoundQuestComponent } from './quest-search/quest-search-item/found-quest/found-quest.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: LandingPageComponent},
-  {path: 'quest', component: LandingPageComponent},
+  {path: 'quest', component: QuestSearchComponent},
+  {path: 'quest/:id', component: FoundQuestComponent},
   {path: 'hideout', component: LandingPageComponent},
   {path: 'maps', component: MapsComponent},
   {path: 'maps/:id', component: MapInfoComponent},

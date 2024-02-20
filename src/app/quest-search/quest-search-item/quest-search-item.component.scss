@@ -1,0 +1,27 @@
+.icon {
+  float: left;
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+#trader {
+  width: 10%;
+  height: 10%;
+}
+p {
+  padding-top: 20px;
+}
+
+a {
+  text-decoration: none;
+  width: 95%;
+  background-color: black;
+  outline: 3px solid black;
+}
+
+a:hover {
+  p {
+    text-shadow: 1px 1px 3px black;
+  }
+  background-color: #D5C1B7;
+}
+

@@ -1,0 +1,59 @@
+<div class="row">
+  <div class="col-md-12 titleDiv" [ngStyle]="{'background-image': 'url(' + this.foundQuest.taskImageLink + ')'}">
+    <h1 class="center questTitle">{{this.foundQuest.name}}</h1>
+  </div>
+</div>
+<br>
+<div class="row">
+  <!-- * OBJECTIVES * -->
+  <div class="col-md-4">
+    <h3 class="center title">Objectives</h3>
+    <hr>
+    <br>
+    <ul>
+      <li>Given By {{this.foundQuest.trader.name}}</li>
+      <li *ngFor="let questObjective of this.foundQuest.objectives">{{questObjective.description}}</li>
+    </ul>
+  </div>
+
+ <!-- * TASK REQUIREMENTS * -->
+ <div class="col-md-4">
+ <h3 class="center title">REQUIREMENTS</h3>
+ <hr>
+    <ul>
+      <li>Must be at least player level {{this.foundQuest.minPlayerLevel}}</li>
+      <li *ngIf="this.foundQuest.map">Must be done on <a style="cursor: pointer"  routerLink="/maps/{{this.foundQuest.map.id}}">{{this.foundQuest.map.name}}</a></li>
+      <li *ngFor="let requriements of this.foundQuest.taskRequirements">Must Complete <a style="cursor: pointer;"(click)="this.getQuestIdByName(requriements.task.name)" routerLink="/quest/{{this.foundQuest._id}}">{{requriements.task.name}}</a></li>
+    </ul>
+  </div>
+
+<!-- * TASK Rewards * -->
+<div class="col-md-4">
+  <h3 class="center title">Rewards</h3>
+  <hr>
+     <ul>
+       <li>{{this.foundQuest.experience.toLocaleString('en-US')}} experience</li>
+       <li *ngFor="let rewardedItem of this.foundQuest.finishRewards.items">({{rewardedItem.quantity.toLocaleString('en-US')}}) <a style="cursor: pointer" routerLink="/flea-market/item/{{this.rewardedItem.item.id}}">{{rewardedItem.item.name}}</a></li>
+       <div *ngIf="this.foundQuest.finishRewards.offerUnlock[0] != null">
+       <li *ngFor="let purchase of this.foundQuest.finishRewards.offerUnlock">Unlocks purchase of <a style="cursor: pointer" routerLink="/flea-market/item/{{this.purchase.item.id}}">{{purchase.item.name}}</a> from {{purchase.trader.name}} level {{purchase.level}}</li>
+      </div>
+      <div *ngIf="this.foundQuest.finishRewards.craftUnlock[0] != null">
+       <li *ngFor="let craft of this.foundQuest.finishRewards.craftUnlock">Unlocks craft for <a style="cursor: pointer" routerLink="/flea-market/item/{{craft.rewardItems[0].item.id}}">{{craft.rewardItems[0].item.name}}</a> for {{craft.station.name}} level {{craft.level}}</li>
+      </div>
+     </ul>
+   </div>
+  </div>
+
+  <br>
+  <br>
+
+  <h1 class="center title">YouTube Tutorial</h1>
+  <hr>
+  <div class="row">
+      <div *ngIf="foundQuestYtLink != 'NA'" class="col-md-12" id="iframeDiv">
+        <iframe [src]="this.sanitizer.bypassSecurityTrustResourceUrl('//www.youtube.com/embed/'+this.foundQuestYtLink)"></iframe>
+    </div>
+    <h2 *ngIf="foundQuestYtLink == 'NA'" class="noVid center">THERE IS NO TUTORIAL FOR THIS QUEST!</h2>
+  </div>
+  <hr>
+  <p class="center">For more information on "{{this.foundQuest.name}}" click <a href="{{this.foundQuest.wikiLink}}" target="_blank">here</a></p>

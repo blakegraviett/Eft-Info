@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-md-12 d-flex justify-content-center">
+<!-- Search Bar -->
+    <form [formGroup]="searchQuestForm" (input)="onInput()">
+      <div class="row">
+        <div class="col-md-12 form-group">
+          <label for="item">Search: </label>
+          <input
+          placeholder="EFT QUEST"
+          type="text"
+          name="quest"
+          id="quest"
+          formControlName="quest"
+          >
+  </div>
+</div>
+</form>
+</div>
+</div>
+<br>
+
+<!-- SEARCH RESULTS -->
+<div class="row">
+<div class="col-md-6 searchDiv" *ngFor="let quest of this.foundQuestArray.data.quest" >
+  <app-quest-search-item [quest]="quest"></app-quest-search-item>
+</div>
+</div>
+<br>

@@ -15,6 +15,8 @@ import { MapInfoComponent } from './maps/map-info/map-info.component';
 import { QuestSearchComponent } from './quest-search/quest-search.component';
 import { QuestSearchItemComponent } from './quest-search/quest-search-item/quest-search-item.component';
 import { FoundQuestComponent } from './quest-search/quest-search-item/found-quest/found-quest.component';
+import { HideoutComponent } from './hideout/hideout.component';
+import { StationComponent } from './hideout/station/station.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { FoundQuestComponent } from './quest-search/quest-search-item/found-ques
     QuestSearchComponent,
     QuestSearchItemComponent,
     FoundQuestComponent,
+    HideoutComponent,
+    StationComponent,
   ],
   imports: [
     BrowserModule,

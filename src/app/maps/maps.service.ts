@@ -47,7 +47,7 @@ export class MapsService {
     })[0])))
 }
 
-  // Get map info from api by ID
+// Get map info from api by ID
 getMapInfoByID(mapId){
   fetch('https://api.tarkov.dev/graphql', {
  method: 'POST',

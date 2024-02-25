@@ -1,0 +1,24 @@
+<div class="row">
+  <h1 class="center title">Welcome to the Hideout!</h1>
+  <br>
+  <div class="col-md-12">
+    <p class="center">In the hideout, players can invest in and build different stations within it, such as a shooting range for skill improvement, a medstation for healing and recovery,
+      a laboratory for crafting and upgrading items, and more. Upgrading these stations requires resources that players can find in raids or trade for,
+      and as players invest in their hideout, they unlock new benefits and abilities. Here is a list of all the stations in the hideout!
+    </p>
+  </div>
+<hr>
+<div class="row">
+  <div class="col-md-3" *ngFor="let station of stationsArr">
+    <div class="card">
+      <center><img class="img-fluid" src="{{station.imageLink}}" alt="{{station.name}}"></center>
+      <div class="card-body">
+        <h5 class="card-title center">{{station.name}}</h5>
+        <hr>
+        <!-- <p class="card-text">{{station.levels[0].description}}</p> -->
+        <center><a style="cursor: pointer" routerLink="/hideout/{{station.id}}" class="btn btn-primary center">Go somewhere</a></center>
+      </div>
+  </div>
+  <br>
+</div>
+
